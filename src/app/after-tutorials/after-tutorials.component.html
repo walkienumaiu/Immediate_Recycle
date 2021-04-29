@@ -1,0 +1,62 @@
+<div id="formContainer">
+  <form [formGroup]="recycleOrder" (ngSubmit)="onSubmit()">
+    <div class="rows">
+      <div class="column">
+        <label for="nume">
+          Nume :
+        </label>
+        <input type="text" formControlName="nume" id="nume" placeholder="Introduceti Numele">
+      </div>
+
+      <div class="column">
+        <label for="prenume">
+          Prenume :
+        </label>
+        <input type="text" formControlName="prenume" id="prenume" placeholder="Introduceti Prenumele">
+      </div>
+
+      <div formGroupName="adresa">
+        <h5>Addresa</h5>
+        <div class="column">
+          <label>
+            Strada:
+            <input type="text" formControlName="strada" placeholder="Introduceti numarul strazii si nr apartamentului">
+          </label>
+        </div>
+
+        <div class="column">
+          <label>
+            Oras:
+            <input type="text" formControlName="oras">
+          </label>
+        </div>
+
+        <div class="column">
+          <label>
+            Judet:
+            <input type="text" formControlName="judet">
+          </label>
+        </div>
+
+        <div class="column">
+
+          <label>
+            Numar de telefon:
+            <input type="text" formControlName="telefon">
+          </label>
+        </div>
+      
+      </div>
+      <div class="column">
+        <label for="tipEconomic">Type </label>
+        <select id="tipEconomic"  (change)="alegeTip($event)" formControlName="tipEconomicControl">
+          <option value="disabled">Alegeti tipul:</option>
+          <option *ngFor="let comp of tipEconomic">{{comp}}</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit">Aici submitul </button>
+  </form>
+</div>
+RecycleORder : {{recycleOrderData | json}}
